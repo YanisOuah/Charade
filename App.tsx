@@ -13,7 +13,7 @@ const App = () => {
         <Stack.Screen name="Home">
           {props => <HomeScreen {...props} />}
         </Stack.Screen>
-        <Stack.Screen name="Details" component={GameScreen} />
+        <Stack.Screen name="Game" component={GameScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

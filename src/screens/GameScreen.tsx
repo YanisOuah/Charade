@@ -1,10 +1,11 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import GameContainer from '../containers/GameContainer';
 
 const GameScreen = () => {
   return (
     <View>
-      <Text>Main Screen</Text>
+      <GameContainer />
     </View>
   );
 };
