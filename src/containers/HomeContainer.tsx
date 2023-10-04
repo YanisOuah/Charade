@@ -7,7 +7,13 @@ interface HomeContainerProps {
 
 const HomeContainer: React.FC<HomeContainerProps> = ({navigation}) => {
   return (
-    <StyledButton onPress={() => navigation.navigate('Game')} text="test" />
+    <>
+      <StyledButton
+        onPress={() => navigation.navigate('Game')}
+        color="green"
+        text="Play"
+      />
+    </>
   );
 };
 export default HomeContainer;

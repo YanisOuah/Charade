@@ -3,19 +3,45 @@ import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
 
 interface StyledButtonProps {
   text?: string;
+  disabled?: boolean;
+  color?: 'red' | 'green' | 'blue';
   children?: React.ReactNode;
   onPress: () => void;
 }
 
+const StyledButton: React.FC<StyledButtonProps> = ({
+  text,
+  disabled = false,
+  color = 'blue',
+  children,
+  onPress,
+}) => {
+  const buttonStyle = React.useMemo(
+    () => ({...styles.button, backgroundColor: disabled ? 'grey' : color}),
+    [disabled, color],
+  );
+  return (
+    <View style={styles.buttonOuterLayout}>
+      <TouchableOpacity
+        style={buttonStyle}
+        onPress={onPress}
+        disabled={disabled}>
+        {!!text && <Text style={styles.text}>{text}</Text>}
+        {children}
+      </TouchableOpacity>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: 'blue', // Customize the button background color
+    backgroundColor: 'red',
     padding: 10,
     borderRadius: 10,
     margin: 10,
   },
   text: {
-    color: 'white', // Customize the text color
+    color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -28,27 +54,4 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
-const StyledButton: React.FC<StyledButtonProps> = ({
-  text,
-  children,
-  onPress,
-}) => {
-  return (
-    // <TouchableOpacity style={[styles.button, buttonStyle]} onPress={onPress}>
-    //   <Text style={[styles.text, textStyle]}>{text}</Text>
-    // </TouchableOpacity>
-    <View style={styles.buttonOuterLayout}>
-      {/* <View style={styles.buttonLayout}>
-        <TouchableOpacity style={styles.button} onPress={onPress}>
-          <Text style={styles.text}>{text}</Text>
-        </TouchableOpacity>
-      </View> */}
-      <TouchableOpacity style={styles.button} onPress={onPress}>
-        {!!text && <Text style={styles.text}>{text}</Text>}
-        {children}
-      </TouchableOpacity>
-    </View>
-  );
-};
-
 export default StyledButton;
