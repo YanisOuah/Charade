@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   bottom: {
+    marginTop: 'auto',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

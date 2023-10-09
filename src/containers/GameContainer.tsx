@@ -40,7 +40,6 @@ const GameContainer = () => {
       <StyledButton onPress={startGame} text="start game" />
       <BigText>{gameRunning ? currentWord : '...'}</BigText>
       {timerComponent}
-      <Text>{words}</Text>
       <Text>{correctWords}</Text>
       <Text>{incorrectWords}</Text>
       <GameButtons

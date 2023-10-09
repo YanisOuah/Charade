@@ -1,12 +1,15 @@
 import React from 'react';
-import {View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import GameContainer from '../containers/GameContainer';
 
 const GameScreen = () => {
   return (
-    <View>
+    <View style={styles.main}>
       <GameContainer />
     </View>
   );
 };
+const styles = StyleSheet.create({
+  main: {height: '100%'},
+});
 export default GameScreen;
