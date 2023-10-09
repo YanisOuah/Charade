@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
 const useTimer = (initialSeconds = 60) => {
   const [seconds, setSeconds] = useState(initialSeconds);
@@ -7,11 +7,6 @@ const useTimer = (initialSeconds = 60) => {
 
   const startTimer = () => {
     setIsActive(true);
-  };
-
-  const resetTimer = () => {
-    setIsActive(false);
-    setSeconds(initialSeconds);
   };
 
   useEffect(() => {
@@ -32,15 +27,6 @@ const useTimer = (initialSeconds = 60) => {
     timerComponent: (
       <View style={styles.container}>
         <Text style={styles.timerText}>{seconds} seconds</Text>
-        {!isActive ? (
-          <TouchableOpacity style={styles.startButton} onPress={startTimer}>
-            <Text style={styles.buttonText}>Start Timer</Text>
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity style={styles.resetButton} onPress={resetTimer}>
-            <Text style={styles.buttonText}>Reset Timer</Text>
-          </TouchableOpacity>
-        )}
       </View>
     ),
     startTimer,
